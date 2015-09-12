@@ -51,14 +51,21 @@
   <ItemGroup>
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\SampleContext.cs" />
-    <Compile Include="NonQueryableRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryableRepository.cs" />
+    <Compile Include="SpecificationRepository.cs" />
+    <Compile Include="Specifications\AndSpecification.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
+    <Compile Include="Specifications\ISpecificationExtensions.cs" />
+    <Compile Include="Specifications\NotSpecification.cs" />
+    <Compile Include="Specifications\OrSpecification.cs" />
+    <Compile Include="Specifications\Specification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
