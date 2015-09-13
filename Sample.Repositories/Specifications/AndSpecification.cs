@@ -1,6 +1,7 @@
 ﻿namespace Sample.Repositories.Specifications
 {
     using System;
+    using System.Linq;
     using System.Linq.Expressions;
 
     internal class AndSpecification<T> : ISpecification<T>
@@ -19,8 +20,8 @@
             var leftExpression = left.IsSatisifiedBy();
             var rightExpression = right.IsSatisifiedBy();
 
-            var parameter = leftExpression.Parameters[0];
-            var body = Expression.AndAlso(leftExpression.Body, rightExpression.Body);
+            var parameter = leftExpression.Parameters.Single();
+            var body = Expression.AndAlso(leftExpression.Body, SpecificationParameterRebinder.ReplaceParameter(rightExpression.Body, parameter));
 
             return Expression.Lambda<Func<T, bool>>(body, parameter);
         }
